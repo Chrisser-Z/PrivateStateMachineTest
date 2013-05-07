@@ -1,5 +1,49 @@
 
+
+class A {
+
+  val aa = 5
+}
+
+trait B_base extends A{
+  val bb = "hello"
+
+  def toImplement(s :String): Boolean
+
+  def implemented() {println("imple")}
+}
+
+
+class B extends B_base
+
+class C() extends A with B_base   {
+  def toImplement(s: String): Boolean = false
+}
+
+
+case class Tate() {
+
+  var id = ""
+
+  def withid(id: String) = {
+    val res = Tate()
+    res.id = id
+    res
+  }
+
+  andEnteringFunction(f: () => Unit) {
+
+  }
+
+}
+
 object Main {
+
+  Tate withid "bla" andEnteringFunction doA
+
+  val x = new C()
+
+  x.implemented()
 
   val base = new HSMBase
   val stateB = new State(id = "B", doB, enterB, exitB)
@@ -31,7 +75,7 @@ object Main {
     stateA.addTransitions(transAtoE)
     println(stateMachine.getCurrentStateQueue)
     println("--------------------------------------")
-    stateMachine.update(2)
+    stateMachine.update(4)
     executeResults()
 
 
